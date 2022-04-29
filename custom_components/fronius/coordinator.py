@@ -5,6 +5,8 @@ from abc import ABC, abstractmethod
 from datetime import timedelta
 from typing import TYPE_CHECKING, Any, TypeVar
 
+import FroniusModbus as FMod
+
 from pyfronius import BadStatusError, FroniusError
 
 from homeassistant.components.sensor import SensorEntityDescription
@@ -139,6 +141,10 @@ class FroniusInverterUpdateCoordinator(FroniusCoordinatorBase):
                 data = await self.solar_net.fronius.current_inverter_data(
                     self.inverter_info.solar_net_id
                 )
+
+                # add modbus implementation
+                data = await FMod.pobierzWartosci()                
+
             except BadStatusError as err:
                 if silent_retry == (self.SILENT_RETRIES - 1):
                     raise err

@@ -6,6 +6,8 @@ from collections.abc import Callable
 import logging
 from typing import Final, TypeVar
 
+import FroniusModbus as Fmod
+
 from pyfronius import Fronius, FroniusError
 
 from homeassistant.config_entries import ConfigEntry
