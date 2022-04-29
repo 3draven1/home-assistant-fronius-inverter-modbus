@@ -1,5 +1,5 @@
 {
-  "codeowners": ["@nielstron", "@farmio"],
+  "codeowners": ["@nielstron", "@farmio", "@3draven"],
   "config_flow": true,
   "dhcp": [
     {
